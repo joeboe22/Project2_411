@@ -6,7 +6,7 @@
 
 
 --CREATING PERSON TABLE--
-create table Person( 
+CREATE TABLE Person( 
 pid integer,
 name char(20),
 primary key(pid));
@@ -39,7 +39,7 @@ VALUES(13500,'Hannah');
 -----------------------
 
 --CREATING STUDENT TABLE--
-create table Student(
+CREATE TABLE Student(
 pid integer,
 primary key(pid),
 foreign key (pid) references Person (pid));
@@ -66,7 +66,7 @@ VALUES(13500);
 -----------------------
 
 --CREATING PROFESSORS TABLE--
-create table Professor(
+CREATE TABLE Professor(
 pid integer,
 primary key(pid),
 foreign key (pid) references Person (pid));
@@ -81,7 +81,7 @@ VALUES(10080);
 -----------------------
                                      
 --CREATING TRANSCRIPT TABLE--
-create table Transcript(
+CREATE TABLE Transcript(
 tid integer,
 gpa float,
 primary key(tid));
