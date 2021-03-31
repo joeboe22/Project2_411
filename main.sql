@@ -5,8 +5,10 @@
 --Naomie Bambara--
 
 
+alter session set nls_date_format = 'dd/MON/yyyy hh24:mi:ss';
+
 --CREATING PERSON TABLE--
-CREATE TABLE Person( 
+create table Person( 
 pid integer,
 name char(20),
 primary key(pid));
@@ -39,7 +41,7 @@ VALUES(13500,'Hannah');
 -----------------------
 
 --CREATING STUDENT TABLE--
-CREATE TABLE Student(
+create table Student(
 pid integer,
 primary key(pid),
 foreign key (pid) references Person (pid));
@@ -66,7 +68,7 @@ VALUES(13500);
 -----------------------
 
 --CREATING PROFESSORS TABLE--
-CREATE TABLE Professor(
+create table Professor(
 pid integer,
 primary key(pid),
 foreign key (pid) references Person (pid));
@@ -81,7 +83,7 @@ VALUES(10080);
 -----------------------
                                      
 --CREATING TRANSCRIPT TABLE--
-CREATE TABLE Transcript(
+create table Transcript(
 tid integer,
 gpa float,
 primary key(tid));
@@ -106,7 +108,7 @@ INSERT INTO Transcript(tid, gpa)
 VALUES(1009, 2.19);
 -----------------------
 -----------------------
-            
+
 --CREATING Email_Address TABLE--
 CREATE TABLE Email_Address(
 email char(30),
@@ -128,9 +130,9 @@ VALUES('Andrea@SCSU.edu', TO_DATE('04-JUL-2020', 'DD-MON-YYYY'));
 INSERT INTO Email_Address(email, creation)
 VALUES('Charlie@SCSU.edu', TO_DATE('14-JUL-2019', 'DD-MON-YYYY'));
 INSERT INTO Email_Address(email, creation)
-VALUES('Antonio@SCSU.edu', TO_DATE('01-JAN-2021', 'DD-MON-YYYY'));
+VALUES('Antonio@SCSU.edu', TO_DATE('01-JAN-2020', 'DD-MON-YYYY'));
 INSERT INTO Email_Address(email, creation)
-VALUES('Hannah@SCSU.edu', TO_DATE('11-MAR-2021', 'DD-MON-YYYY'));
+VALUES('Hannah@SCSU.edu', TO_DATE('11-MAR-2020', 'DD-MON-YYYY'));
 -----------------------
 -----------------------
 
@@ -140,7 +142,6 @@ oid char(10),
 organization char(30),
 primary key(oid));
 -----------------------
-
 INSERT INTO Volunteer(oid, organization)
 VALUES('ORG101', 'Humane Society');
 INSERT INTO Volunteer(oid, organization)
@@ -148,5 +149,58 @@ VALUES('ORG102', 'Salvation Army');
 INSERT INTO Volunteer(oid, organization)
 VALUES('ORG103', 'Soup Kitchen');
 -----------------------
------------------------                        
+-----------------------
+
+CREATE TABLE Room(
+room_number integer,
+building char(30),
+primary key(room_number, building));
+-----------------------
+INSERT INTO Room(room_number, building)
+VALUES(211, 'ECC');
+INSERT INTO Room(room_number, building)
+VALUES(104, 'ISELF');
+INSERT INTO Room(room_number, building)
+VALUES(217, 'EB');
+INSERT INTO Room(room_number, building)
+VALUES(107, 'ECC');
+-----------------------
+-----------------------
+
+CREATE TABLE Course(
+cid char(10),
+section integer,
+course_name char(40),
+semester char(15),
+primary key(cid, section));
+-----------------------
+INSERT INTO Course(cid, section, course_name, semester)
+VALUES('CSCI301', 1, 'Computer Science 2', 'Fall' );
+INSERT INTO Course(cid, section, course_name, semester)
+VALUES('CSCI220', 1, 'Computer Architecture 2', 'Fall' );
+INSERT INTO Course(cid, section, course_name, semester)
+VALUES('CSCI411', 1, 'Database Theory and Design', 'Spring');
+INSERT INTO Course(cid, section, course_name, semester)
+VALUES('CSCI221', 1, 'Calculus 1', 'Spring');
+-----------------------
+-----------------------
+
+CREATE TABLE Final_Exam(
+eid char(10),
+course_name char(40),
+exam_time date,
+primary key(eid));
+-----------------------
+INSERT INTO Final_Exam(eid, course_name, exam_time)
+VALUES('E11', 'Computer Science 2', TO_DATE('17-DEC-2020 11:30:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Final_Exam(eid, course_name, exam_time)
+VALUES('E12', 'Computer Architecture 2', TO_DATE('15-DEC-2020 12:15:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Final_Exam(eid, course_name, exam_time)
+VALUES('E21', 'Database Theory and Design', TO_DATE('04-MAY-2020 12:00:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Final_Exam(eid, course_name, exam_time)
+VALUES('E22', 'Calculus 1', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS'));
+-----------------------
+-----------------------
+
+                                    
             
