@@ -106,5 +106,47 @@ INSERT INTO Transcript(tid, gpa)
 VALUES(1009, 2.19);
 -----------------------
 -----------------------
-                        
+            
+--CREATING Email_Address TABLE--
+CREATE TABLE Email_Address(
+email char(30),
+creation date,
+primary key(email));
+-----------------------
+INSERT INTO Email_Address(email, creation)
+VALUES('Mark@SCSU.edu', TO_DATE('01-FEB-2020', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Alice@SCSU.edu', TO_DATE('28-AUG-2019', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Sarah@SCSU.edu', TO_DATE('11-Jan-2020', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Jane@SCSU.edu', TO_DATE('21-MAY-2020', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Albert@SCSU.edu', TO_DATE('01-MAR-2018', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Andrea@SCSU.edu', TO_DATE('04-JUL-2020', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Charlie@SCSU.edu', TO_DATE('14-JUL-2019', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Antonio@SCSU.edu', TO_DATE('01-JAN-2021', 'DD-MON-YYYY'));
+INSERT INTO Email_Address(email, creation)
+VALUES('Hannah@SCSU.edu', TO_DATE('11-MAR-2021', 'DD-MON-YYYY'));
+-----------------------
+-----------------------
+
+--CREATING Volunteer TABLE--
+CREATE TABLE Volunteer(
+oid char(10),
+organization char(30),
+primary key(oid));
+-----------------------
+
+INSERT INTO Volunteer(oid, organization)
+VALUES('ORG101', 'Humane Society');
+INSERT INTO Volunteer(oid, organization)
+VALUES('ORG102', 'Salvation Army');
+INSERT INTO Volunteer(oid, organization)
+VALUES('ORG103', 'Soup Kitchen');
+-----------------------
+-----------------------                        
             
