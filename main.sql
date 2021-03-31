@@ -9,8 +9,7 @@
 create table Person( 
 pid integer,
 name char(20),
-primary key(pid)
-);
+primary key(pid));
 -----------------------
 INSERT INTO Person(pid,name)
 VALUES(10005,'John');
@@ -43,8 +42,7 @@ VALUES(13500,'Hannah');
 create table Student(
 pid integer,
 primary key(pid),
-foreign key (pid) references Person (pid)
-);
+foreign key (pid) references Person (pid));
 -----------------------
 INSERT INTO Student(pid)
 VALUES(12000);
@@ -71,8 +69,7 @@ VALUES(13500);
 create table Professor(
 pid integer,
 primary key(pid),
-foreign key (pid) references Person (pid)
-);
+foreign key (pid) references Person (pid));
 -----------------------
 INSERT INTO Professor(pid)
 VALUES(10005);
@@ -82,3 +79,32 @@ INSERT INTO Professor(pid)
 VALUES(10080);
 -----------------------
 -----------------------
+                                     
+--CREATING TRANSCRIPT TABLE--
+create table Transcript(
+tid integer,
+gpa float,
+primary key(tid));
+-----------------------
+INSERT INTO Transcript(tid, gpa)
+VALUES(1001, 2.75);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1002, 3.49);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1003, 3.98);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1004, 1.99);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1005, 2.33);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1006, 1.66);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1007, 4.00);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1008, 3.33);
+INSERT INTO Transcript(tid, gpa)
+VALUES(1009, 2.19);
+-----------------------
+-----------------------
+                        
+            
