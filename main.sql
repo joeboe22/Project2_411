@@ -109,7 +109,7 @@ VALUES(1009, 2.19);
 -----------------------
 -----------------------
 
---CREATING Email_Address TABLE--
+--CREATING EMAIL_ADDRESS TABLE--
 CREATE TABLE Email_Address(
 email char(30),
 creation date,
@@ -136,7 +136,7 @@ VALUES('Hannah@SCSU.edu', TO_DATE('11-MAR-2020', 'DD-MON-YYYY'));
 -----------------------
 -----------------------
 
---CREATING Volunteer_Work TABLE--
+--CREATING VOLUNTEER_WORK TABLE--
 CREATE TABLE Volunteer_Work(
 oid char(10),
 organization char(30),
@@ -151,7 +151,7 @@ VALUES('ORG103', 'Soup Kitchen');
 -----------------------
 -----------------------
 
---CREATING Room TABLE--
+--CREATING ROOM TABLE--
 CREATE TABLE Room(
 room_number integer,
 building char(30),
@@ -168,7 +168,7 @@ VALUES(107, 'ECC');
 -----------------------
 -----------------------
             
---CREATING Course TABLE--
+--CREATING COURSE TABLE--
 CREATE TABLE Course(
 cid char(10),
 section integer,
@@ -187,7 +187,7 @@ VALUES('MATH221', 1, 'Calculus 1', 'Spring');
 -----------------------
 -----------------------
 
---CREATING Final_Exam TABLE--            
+--CREATING FINAL_EXAM TABLE--            
 CREATE TABLE Final_Exam(
 eid char(10),
 course_name char(40),
@@ -205,7 +205,7 @@ VALUES('E22', 'Calculus 1', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS
 -----------------------
 -----------------------
 
---CREATING Parking TABLE--                                    
+--CREATING PARKING TABLE--                                    
 CREATE TABLE Parking(
 permit_id integer,
 space_number integer,
@@ -240,7 +240,7 @@ VALUES(92002, 8, '2017 Nissan Altima', 'N Lot');
 -----------------------
 -----------------------
 
---CREATING Parks TABLE-- 
+--CREATING PARKS TABLE-- 
 CREATE TABLE Parks(
 permit_id integer,
 pid integer,
@@ -275,7 +275,7 @@ VALUES(92077, 13500);
 -----------------------
 -----------------------
             
---CREATING Volunteers TABLE-- 
+--CREATING VOLUNTEERS TABLE-- 
 CREATE TABLE Volunteers(
 pid integer,
 oid char(10),
@@ -314,3 +314,85 @@ INSERT INTO Volunteers(pid, oid, hours_worked)
 VALUES(13500, 'ORG103', 4);
 INSERT INTO Volunteers(pid, oid, hours_worked)
 VALUES(13500, 'ORG101', 4);
+-----------------------
+-----------------------
+
+--CREATING ASSIGNED TABLE--
+CREATE TABLE Assigned(
+pid integer,
+email char(30),
+primary key(pid, email),
+foreign key (email) references Email_address,
+foreign key (pid) references student);
+-----------------------
+INSERT INTO Assigned(pid, email)
+VALUES(10010, 'Mark@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10020, 'Alice@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10025, 'Sarah@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10030, 'Jane@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10035, 'Albert@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10090, 'Andrea@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(10115, 'Charlie@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(12000, 'Antonio@SCSU.edu');
+INSERT INTO Assigned(pid, email)
+VALUES(13500, 'Hannah@SCSU.edu');
+-----------------------
+-----------------------
+
+--CREATING VIEWS TABLE-- 
+CREATE TABLE Views(
+pid integer,
+tid integer,
+primary key(pid, tid),
+foreign key (tid) references Transcript,
+foreign key (pid) references Student);
+-----------------------
+INSERT INTO VIEWS(pid, tid)
+VALUES(10025, 1001);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10035, 1002);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10090, 1003);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10115, 1004);
+INSERT INTO VIEWS(pid, tid)
+VALUES(12000, 1005);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10030, 1006);
+INSERT INTO VIEWS(pid, tid)
+VALUES(13500, 1007);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10010, 1008);
+INSERT INTO VIEWS(pid, tid)
+VALUES(10020, 1009);
+-----------------------
+-----------------------
+
+--CREATING TEACHES TABLE-- 
+CREATE TABLE Teaches(
+pid integer,
+cid char(10),
+section integer,
+primary key(pid, cid, section),
+foreign key (cid, section) references Course,
+foreign key (pid) references Professor);
+-----------------------
+INSERT INTO Teaches(pid, cid, section)
+VALUES(10005, 'CSCI301', 1);
+INSERT INTO Teaches(pid, cid, section)
+VALUES(10015, 'CSCI220', 1);
+INSERT INTO Teaches(pid, cid, section)
+VALUES(10015, 'CSCI411', 1);
+INSERT INTO Teaches(pid, cid, section)
+VALUES(10080, 'MATH221', 1);
+-----------------------
+-----------------------
+
+
