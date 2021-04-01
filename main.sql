@@ -181,7 +181,7 @@ VALUES('CSCI220', 1, 'Computer Architecture 2', 'Fall' );
 INSERT INTO Course(cid, section, course_name, semester)
 VALUES('CSCI411', 1, 'Database Theory and Design', 'Spring');
 INSERT INTO Course(cid, section, course_name, semester)
-VALUES('CSCI221', 1, 'Calculus 1', 'Spring');
+VALUES('MATH221', 1, 'Calculus 1', 'Spring');
 -----------------------
 -----------------------
 
@@ -202,5 +202,10 @@ VALUES('E22', 'Calculus 1', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS
 -----------------------
 -----------------------
 
-                                    
-            
+
+CREATE TABLE Parking(
+permit_id integer,
+space_number integer,
+car_model char(25),
+lot_name char(25),
+primary key(permit_id));
