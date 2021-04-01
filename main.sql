@@ -202,10 +202,36 @@ VALUES('E22', 'Calculus 1', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS
 -----------------------
 -----------------------
 
-
 CREATE TABLE Parking(
 permit_id integer,
 space_number integer,
 car_model char(25),
 lot_name char(25),
 primary key(permit_id));
+-----------------------
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92080, 1, '2019 Ford Fusion', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(90370, 2, '2020 Toyota Camry', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92099, 3, '2016 Honda Civic', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92011, 4, '2015 Honda Accord', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92321, 1, '2020 Chevrolet Suburban', 'E Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92009, 2, '2013 Ford Escape', 'E Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92001, 3, '2015 Mitsubishi Outlander', 'E Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92077, 4, '2007 Toyota', 'E Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92399, 5, '2020 Tesla model 3', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92173, 6, '2015 BMW X6 ', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92999, 7, '2021 Ford Edge', 'N Lot');
+INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
+VALUES(92002, 8, '2017 Nissan Altima', 'N Lot')
+-----------------------
+-----------------------
