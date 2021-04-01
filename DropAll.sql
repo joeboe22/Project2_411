@@ -1,0 +1,10 @@
+drop table Email_address;
+drop table Professor;
+drop table STUDENT;
+drop table TRANSCRIPT;
+drop table volunteer;
+drop table Room;
+drop table Person;
+drop table course;
+drop table final_exam;
+drop table Parking;
