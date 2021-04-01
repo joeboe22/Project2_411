@@ -516,7 +516,14 @@ primary key(pid, room_number, building),
 foreign key (pid) references Professor,
 foreign key (room_number, building) references Room);
 -----------------------
---Entering Tuples Laters--
+INSERT INTO Picks(pid, room_number, building)
+VALUES(10005, 211, 'ECC');
+INSERT INTO Picks(pid, room_number, building)
+VALUES(10015, 217, 'EB');
+INSERT INTO Picks(pid, room_number, building)
+VALUES(10015, 104, 'ISELF');
+INSERT INTO Picks(pid, room_number, building)
+VALUES(10080, 107, 'ECC');
 -----------------------
 -----------------------
 
@@ -530,6 +537,13 @@ primary key(cid, section, room_number, building),
 foreign key (cid, section) references Course,
 foreign key (room_number, building) references Room);
 -----------------------
---Entering Tuples Laters--
+INSERT INTO Assigned_To(cid, section, room_number, building)
+VALUES('CSCI301', 1, 211, 'ECC');
+INSERT INTO Assigned_To(cid, section, room_number, building)
+VALUES('CSCI220', 1, 217, 'EB');
+INSERT INTO Assigned_To(cid, section, room_number, building)
+VALUES('CSCI411', 1, 104, 'ISELF');
+INSERT INTO Assigned_To(cid, section, room_number, building)
+VALUES('MATH221', 1, 107, 'ECC');
 -----------------------
 -----------------------
