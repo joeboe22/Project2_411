@@ -395,4 +395,141 @@ VALUES(10080, 'MATH221', 1);
 -----------------------
 -----------------------
 
+--CREATING REGISTERS TABLE-- 
+CREATE TABLE Registers(
+pid integer,
+cid char(10),
+section integer,
+primary key(pid, cid, section),
+foreign key (cid, section) references Course,
+foreign key (pid) references Student);
+-----------------------
+INSERT INTO Registers(pid, cid, section)
+VALUES(10010, 'CSCI301', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10020, 'CSCI301', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10025, 'CSCI220', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10030, 'CSCI220', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10035, 'CSCI220', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10090, 'MATH221', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10115, 'MATH221', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(12000, 'CSCI411', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(13500, 'CSCI301', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(13500, 'CSCI411', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10020, 'MATH221', 1);
+INSERT INTO Registers(pid, cid, section)
+VALUES(10010, 'CSCI411', 1);
+-----------------------
+-----------------------
 
+--CREATING SCHEDULES TABLE-- 
+CREATE TABLE Schedules(
+pid integer,
+eid char(10),
+exam_time date,
+primary key(eid, pid),
+foreign key (pid) references Professor,
+foreign key (eid) references Final_Exam);
+-----------------------
+INSERT INTO Schedules(pid, eid, exam_time)
+VALUES(10005, 'E11', TO_DATE('17-DEC-2020 11:30:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Schedules(pid, eid, exam_time)
+VALUES(10015, 'E12', TO_DATE('15-DEC-2020 12:15:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Schedules(pid, eid, exam_time)
+VALUES(10015, 'E21', TO_DATE('04-MAY-2020 12:00:00','DD-MON-YYYY HH:MI:SS'));
+INSERT INTO Schedules(pid, eid, exam_time)
+VALUES(10080, 'E22', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS'));
+-----------------------
+-----------------------
+
+--CREATING TAKES TABLE-- 
+CREATE TABLE Takes(
+eid char(10),
+cid char(10),
+section integer,
+primary key(eid, cid, section),
+foreign key (cid, section) references Course,
+foreign key (eid) references Final_Exam);
+-----------------------
+INSERT INTO Takes(eid, cid, section)
+VALUES('E11', 'CSCI301', 1);
+INSERT INTO Takes(eid, cid, section)
+VALUES('E12', 'CSCI220', 1);
+INSERT INTO Takes(eid, cid, section)
+VALUES('E21', 'CSCI411', 1);
+INSERT INTO Takes(eid, cid, section)
+VALUES('E22', 'MATH221', 1);
+-----------------------
+-----------------------
+
+--CREATING FINAL_GRADE TABLE-- 
+CREATE TABLE Final_Grade(
+pid integer,
+eid char(10),
+grade char(5),
+primary key(eid, pid),
+foreign key (pid) references Student,
+foreign key (eid) references Final_Exam);
+-----------------------
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10010, 'E11', 'D');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10010, 'E21', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10020, 'E11', 'C');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10020, 'E22', 'B');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10025, 'E12', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10030, 'E12', 'B');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10035, 'E12', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10090, 'E22', 'F');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(10115, 'E22', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(12000, 'E21', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(13500, 'E11', 'A');
+INSERT INTO Final_Grade(pid, eid, grade)
+VALUES(13500, 'E22', 'A');
+-----------------------
+-----------------------
+
+--CREATING PICKS TABLE-- 
+CREATE TABLE Picks(
+pid integer,
+room_number integer,
+building char(30),
+primary key(pid, room_number, building),
+foreign key (pid) references Professor,
+foreign key (room_number, building) references Room);
+-----------------------
+--Entering Tuples Laters--
+-----------------------
+-----------------------
+
+--CREATING ASSIGNED_TO TABLE-- 
+CREATE TABLE Assigned_To(
+cid char(10),
+section integer,
+room_number integer,
+building char(30),
+primary key(cid, section, room_number, building),
+foreign key (cid, section) references Course,
+foreign key (room_number, building) references Room);
+-----------------------
+--Entering Tuples Laters--
+-----------------------
+-----------------------
