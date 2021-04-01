@@ -136,21 +136,22 @@ VALUES('Hannah@SCSU.edu', TO_DATE('11-MAR-2020', 'DD-MON-YYYY'));
 -----------------------
 -----------------------
 
---CREATING Volunteer TABLE--
-CREATE TABLE Volunteer(
+--CREATING Volunteer_Work TABLE--
+CREATE TABLE Volunteer_Work(
 oid char(10),
 organization char(30),
 primary key(oid));
 -----------------------
-INSERT INTO Volunteer(oid, organization)
+INSERT INTO Volunteer_Work(oid, organization)
 VALUES('ORG101', 'Humane Society');
-INSERT INTO Volunteer(oid, organization)
+INSERT INTO Volunteer_Work(oid, organization)
 VALUES('ORG102', 'Salvation Army');
-INSERT INTO Volunteer(oid, organization)
+INSERT INTO Volunteer_Work(oid, organization)
 VALUES('ORG103', 'Soup Kitchen');
 -----------------------
 -----------------------
 
+--CREATING Room TABLE--
 CREATE TABLE Room(
 room_number integer,
 building char(30),
@@ -166,7 +167,8 @@ INSERT INTO Room(room_number, building)
 VALUES(107, 'ECC');
 -----------------------
 -----------------------
-
+            
+--CREATING Course TABLE--
 CREATE TABLE Course(
 cid char(10),
 section integer,
@@ -185,6 +187,7 @@ VALUES('MATH221', 1, 'Calculus 1', 'Spring');
 -----------------------
 -----------------------
 
+--CREATING Final_Exam TABLE--            
 CREATE TABLE Final_Exam(
 eid char(10),
 course_name char(40),
@@ -202,6 +205,7 @@ VALUES('E22', 'Calculus 1', TO_DATE('06-MAY-2020 08:30:00','DD-MON-YYYY HH:MI:SS
 -----------------------
 -----------------------
 
+--CREATING Parking TABLE--                                    
 CREATE TABLE Parking(
 permit_id integer,
 space_number integer,
@@ -232,6 +236,81 @@ VALUES(92173, 6, '2015 BMW X6 ', 'N Lot');
 INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
 VALUES(92999, 7, '2021 Ford Edge', 'N Lot');
 INSERT INTO Parking(permit_id, space_number, car_model, lot_name)
-VALUES(92002, 8, '2017 Nissan Altima', 'N Lot')
+VALUES(92002, 8, '2017 Nissan Altima', 'N Lot');
 -----------------------
 -----------------------
+
+--CREATING Parks TABLE-- 
+CREATE TABLE Parks(
+permit_id integer,
+pid integer,
+primary key(permit_id, pid),
+foreign key (permit_id) references Parking,
+foreign key (pid) REFERENCES Person);
+-----------------------
+INSERT INTO Parks(permit_id, pid)
+VALUES(92399, 10005);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92999, 10015);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92173, 10080);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92002, 10010);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92080, 10020);
+INSERT INTO Parks(permit_id, pid)
+VALUES(90370, 10025);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92099, 10030);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92011, 10035);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92321, 10090);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92009, 10115);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92001, 12000);
+INSERT INTO Parks(permit_id, pid)
+VALUES(92077, 13500);
+-----------------------
+-----------------------
+            
+--CREATING Volunteers TABLE-- 
+CREATE TABLE Volunteers(
+pid integer,
+oid char(10),
+hours_worked integer,
+primary key(pid, oid),
+foreign key (oid) references Volunteer_Work,
+foreign key (pid) references student);
+-----------------------
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10010, 'ORG101', 2);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10010, 'ORG102', 3);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10020, 'ORG101', 11);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10025, 'ORG103', 7);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10030, 'ORG103', 2);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10030, 'ORG101', 4);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10030, 'ORG102', 9);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10035, 'ORG101', 15);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10035, 'ORG103', 2);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10090, 'ORG102', 3);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10090, 'ORG103', 3);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(10115, 'ORG102', 10);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(12000, 'ORG103', 13);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(13500, 'ORG103', 4);
+INSERT INTO Volunteers(pid, oid, hours_worked)
+VALUES(13500, 'ORG101', 4);
