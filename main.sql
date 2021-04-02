@@ -503,7 +503,7 @@ VALUES(12000, 'E21', 'A');
 INSERT INTO Final_Grade(pid, eid, grade)
 VALUES(13500, 'E11', 'A');
 INSERT INTO Final_Grade(pid, eid, grade)
-VALUES(13500, 'E22', 'A');
+VALUES(13500, 'E21', 'A');
 -----------------------
 -----------------------
 
