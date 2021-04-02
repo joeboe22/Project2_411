@@ -10,9 +10,6 @@ WHERE
     AND ( b.cid LIKE 'CSCI22%'
           OR b.cid LIKE 'MATH22%' )
 
-
-
-
        PID CID       
 ---------- ----------
      10025 CSCI220   
@@ -35,9 +32,6 @@ SELECT
 FROM
     student,
     volunteer_work;
-
-
- 
 
 
        PID OID        ORGANIZATION                  
@@ -111,9 +105,6 @@ FROM
     final_grade
 WHERE
     final_grade.grade LIKE 'A%'
-
-
-   
 
 
 CID        COURSE_NAME                              GRADE
